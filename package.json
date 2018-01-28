@@ -1,0 +1,17 @@
+{
+  "name": "recipebook",
+  "version": "1.0.0",
+  "description": "A Recipe Book App.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "UP810928 <up810928@myport.ac.uk>",
+  "contributors": [
+    "UP810928 <up810928@myport.ac.uk>"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
