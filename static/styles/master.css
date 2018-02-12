@@ -76,6 +76,9 @@ li a {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 .p-nav-link-active {
@@ -98,6 +101,8 @@ li a {
     text-decoration:none;
 }
 
+
+
 /* ========== [LEE] CONTENT ========== */
 
 .boxed {
@@ -106,4 +111,20 @@ li a {
     border: 3px solid rgb(233, 35, 144);
     padding: 10px;
     text-align: center;
-  }
+}
+
+
+
+/* ========== [LEE] FOOTER ========== */
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: #1e1e1e;
+    border-top: 6px solid #76b852;
+    border-bottom: 2px solid #1a1a1a;
+    color: white;
+    text-align: center;
+}
