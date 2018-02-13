@@ -194,7 +194,7 @@ li.subNav a {
 
 /* ========== [LEE] CARD ========== */
 
-.wrapper {
+.card-wrapper {
     max-width: 400px;
     margin: 50px auto;
     padding-left: 1em;
@@ -309,6 +309,19 @@ li.subNav a {
 }
 
 
+
+/* ========== [LEE] CONTENT ========== */
+.contentLeft {
+    float:left;
+padding-left: 25%;
+}
+
+.contentRight {
+    float:right;
+    padding-right: 25%;
+}
+
+
 /* ========== [LEE] FOOTER ========== */
 
 .footer {
@@ -321,4 +334,6 @@ li.subNav a {
     border-bottom: 2px solid #1a1a1a;
     color: white;
     text-align: center;
+    padding-top:5px;
+    padding-bottom: 5px;
 }
