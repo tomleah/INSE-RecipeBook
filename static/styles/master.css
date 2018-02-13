@@ -11,18 +11,6 @@ html {
     line-height: 1.15;
 }
 
-li {
-    float: left;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
 
 
 /* ========== [LEE] HEADER ========== */
@@ -71,14 +59,11 @@ li a {
     align-items: center;
 }
 
-.p-nav-link {
-    list-style-type: none;
+.p-nav-list {
+    list-style: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    font-size: 13px;
-    font-weight: bold;
-    text-transform: uppercase;
+    font-size: 0;
 }
 
 .p-nav-link-active {
@@ -101,6 +86,89 @@ li a {
     text-decoration:none;
 }
 
+.p-nav-list .p-navEl {
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 0.7;
+}
+
+li.nav {
+    float: left;
+}
+
+li.nav a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+
+
+/* ========== [LEE] SUB-NAV ========== */
+
+.p-subNav {
+    font-size: 12px;
+    color: #7c9292;
+    background: #f9fafa;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.p-subNav .pageContent {
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: space-between;
+    min-height: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    transition: max-width .2s;
+}
+
+.p-subNavLinks-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+}
+.p-subNavLinks-list .p-navEl {
+    font-size: 12px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+li.subNav {
+    float: left;
+}
+
+li.subNav a {
+    display: block;
+    text-align: center;
+    padding: 0px 12px;
+    text-decoration:none;
+    color: inherit;
+}
+
+.p-nav-opposite input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 14px;
+    border: none;
+}
+
+.p-nav-opposite button {
+    float: right;
+    padding: 6px 10px;
+    margin-top: 8px;
+    background: #ddd;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+  }
+
 
 
 /* ========== [LEE] CONTENT ========== */
@@ -108,9 +176,10 @@ li a {
 .boxed {
     margin: auto;
     width: 50%;
-    border: 3px solid rgb(233, 35, 144);
+    border: 6px solid #76b852;
     padding: 10px;
     text-align: center;
+    margin-top:10px;
 }
 
 

@@ -20,33 +20,73 @@
         </div>
     </header>
 
+
     <!--NAVIGATION (buttons or links)-->
     <nav class="p-nav">
         <div class="p-nav-inner">
-            <ul class="p-nav-link">
-                <li>
-                    <a class="p-nav-link-active" href="#LINK1">
-                        <i class="fa fa-home fa-fw" aria-hidden="true"></i> &nbsp;Home
-                    </a>
+            <ul class="p-nav-list">
+                <li class="nav">
+                    <div class="p-navEl">
+                        <a class="p-nav-link-active" href="#LINK1">
+                            <i class="fa fa-home fa-fw" aria-hidden="true"></i> &nbsp;Home
+                        </a>
+                    </div>
                 </li>
-                <li>
-                    <a href="LINK2">
-                        <i class="fa fa-bullhorn fa-fw" aria-hidden="true"></i> &nbsp;What's New
-                    </a>
+                <li class="nav">
+                    <div class="p-navEl">
+                        <a href="LINK2">
+                            <i class="fa fa-bullhorn fa-fw" aria-hidden="true"></i> &nbsp;What's New
+                        </a>
+                    </div>
                 </li>
-                <li>
-                    <a href="LINK3">
-                        <i class="fa fa-users fa-fw" aria-hidden="true"></i> &nbsp;Members
-                    </a>
+                <li class="nav">
+                    <div class="p-navEl">
+                        <a href="LINK3">
+                            <i class="fa fa-users fa-fw" aria-hidden="true"></i> &nbsp;Members
+                        </a>
+                    </div>
                 </li>
             </ul>
             <div class="p-nav-opposite">
                 <a href="LINK4" class="p-navgroup-link">
-                    <i class="fa fa-user fa-fw" aria-hidden="true"></i> Log in
+                    <i class="fa fa-sign-in fa-fw" aria-hidden="true"></i> Log in&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </a>
+                <a href="LINK4" class="p-navgroup-link">
+                    <i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> Register
                 </a>
             </div>
         </div>
     </nav>
+
+
+    <!--SUBNAV (search and other filters) -->
+    <div class="p-subNav">
+        <div class="pageContent">
+            <ul class="p-subNavLinks-list">
+                <li class="subNav">
+                    <div class="p-navEl">
+                        <a href="LINK5">
+                            <i class="fa fa-filter fa-fw" aria-hidden="true"></i>Filter Option 1</a>
+                    </div>
+                </li>
+                <li class="subNav">
+                    <div class="p-navEl">
+                        <a href="LINK6">
+                            <i class="fa fa-filter fa-fw" aria-hidden="true"></i>Filter Option 2</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="p-nav-opposite">
+                <form action="/DOSOMETHING.php">
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
 
     <!--CONTENT -->
     <div class="boxed">
@@ -65,8 +105,7 @@
             </span> by the Bake Street Boyz</p>
     </div>
 
+
 </body>
-
-
 
 </html>
