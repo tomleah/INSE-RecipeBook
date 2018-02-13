@@ -4,7 +4,8 @@
   "description": "A Recipe Book App.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "initdb": "mysql -u root -p < database/init-database.sql"
   },
   "author": "UP810928 <up810928@myport.ac.uk>",
   "contributors": [
