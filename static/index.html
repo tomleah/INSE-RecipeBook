@@ -16,7 +16,7 @@
     <header class="p-header" id="header">
         <div class="p-header-inner">
             <div class="p-header-content">
-                <img src="images/header/Logo.png" alt="Recipe">
+                <img src="images/header/Logo.png" style="width: 100vw;" alt="Recipe">
             </div>
         </div>
     </header>
@@ -90,99 +90,57 @@
 
 
     <!--CONTENT -->
-    <div class="contentLeft">
-        <div class="card-wrapper">
-            <div class="card radius shadowDepth1">
-                <div class="card-image border-tlr-radius">
-                    <img src="images/placeholder/cardcover001.png" alt="coverimg" class="border-tlr-radius">
-                </div>
-                <div class="card-content card-padding">
-                    <div class="card-favourite">
-                        <a id="favourite" class="favourite-icon favourite-toggle" href="#"></a>
-                    </div>
+    <template id="template_card">
+      <div class="card-wrapper">
+          <div class="card radius shadowDepth1">
+              <div class="card-image border-tlr-radius">
+                  <img src="images/placeholder/cardcover001.png" alt="coverimg" class="border-tlr-radius">
+              </div>
+              <div class="card-content card-padding">
+                  <div class="card-favourite">
+                      <a id="favourite" class="favourite-icon favourite-toggle" href="#"></a>
+                  </div>
 
-                    <div class="card-meta">
-                        <a href="#">Vegetarian</a>
-                        <time>13th February</time>
-                    </div>
+                  <div class="card-meta">
+                      <a href="#">Vegetarian</a>
+                      <time>13th February</time>
+                  </div>
 
-                    <div class="card-stats">
-                        <p class="card-stats-alignleft">
-                            <i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Cooking time: 30 mins</a>
-                        </p>
-                        <p class="card-stats-alignright">
-                            <i class="fa fa-cutlery fa-fw" aria-hidden="true"></i>Feeds: 2</a>
-                        </p>
-                    </div>
+                  <div class="card-stats">
+                      <p class="card-stats-alignleft">
+                          <i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Cooking time: <span id="recipe_time">??</span> mins</a>
+                      </p>
+                      <p class="card-stats-alignright">
+                          <i class="fa fa-cutlery fa-fw" aria-hidden="true"></i>Feeds: 2</a>
+                      </p>
+                  </div>
 
-                    <article class="card-article">
-                        <h2>
-                            <a href="#">Hawaiian Pizza</a>
-                        </h2>
-                        <p>
-                            Hawaiian pizza is a pizza topped with tomato sauce, cheese, pineapple, and Canadian bacon or ham.
-                        </p>
-                    </article>
-                </div>
+                  <article class="card-article">
+                      <h2>
+                          <a id="recipe_name" href="#">Recipe Name Placeholder</a>
+                      </h2>
+                      <p id="recipe_description">
+                          Hawaiian pizza is a pizza topped with tomato sauce, cheese, pineapple, and Canadian bacon or ham.
+                      </p>
+                  </article>
+              </div>
 
-                <div class="card-action">
-                    <div class="card-author">
-                        <img src="images/placeholder/user001.png" alt="user" height="42" width="42">
-                        <div class="card-author-content">
-                            <a href="#">By Liam Kerrigan</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+              <div class="card-action">
+                  <div class="card-author">
+                      <img src="images/placeholder/user001.png" alt="user" height="42" width="42">
+                      <div class="card-author-content">
+                          <a href="#">By Liam Kerrigan</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </template>
 
-    <div class="contentRight">
-        <div class="card-wrapper">
-            <div class="card radius shadowDepth1">
-                <div class="card-image border-tlr-radius">
-                    <img src="images/placeholder/cardcover002.png" alt="coverimg" class="border-tlr-radius">
-                </div>
-                <div class="card-content card-padding">
-                    <div class="card-favourite">
-                        <a id="favourite" class="favourite-icon favourite-toggle" href="#"></a>
-                    </div>
+    <!--The template above is cloned to the empty div below.-->
+    <div id="recipe_cards"></div>
+    <!-- </div> -->
 
-                    <div class="card-meta">
-                        <a href="#">Dessert</a>
-                        <time>13th February</time>
-                    </div>
-
-                    <div class="card-stats">
-                        <p class="card-stats-alignleft">
-                            <i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Cooking time: 5 mins</a>
-                        </p>
-                        <p class="card-stats-alignright">
-                            <i class="fa fa-cutlery fa-fw" aria-hidden="true"></i>Feeds: 6</a>
-                        </p>
-                    </div>
-
-                    <article class="card-article">
-                        <h2>
-                            <a href="#">Chocolate Cake</a>
-                        </h2>
-                        <p>
-                            A super speedy chocolate cake with added strawberries which tastes great when served hot or cold.
-                        </p>
-                    </article>
-                </div>
-
-                <div class="card-action">
-                    <div class="card-author">
-                        <img src="images/placeholder/user001.png" alt="user" height="42" width="42">
-                        <div class="card-author-content">
-                            <a href="#">By Liam Kerrigan</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
     <!--FOOTER -->
