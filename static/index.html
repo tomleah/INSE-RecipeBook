@@ -13,7 +13,7 @@
 
 <body>
     <!--HEADER (banner and logo)-->
-    <header class="p-header" id="header">
+    <header class="p-header">
         <div class="p-header-inner">
             <div class="p-header-content">
                 <img src="images/header/Logo.png" style="width: 100vw;" alt="Recipe">
@@ -88,8 +88,8 @@
         </div>
     </div>
 
-
     <!--CONTENT -->
+<<<<<<< HEAD
     <template id="template_card">
       <div class="card-wrapper">
           <div class="card radius shadowDepth1">
@@ -124,32 +124,68 @@
                       </p>
                   </article>
               </div>
+=======
+    <main>
+      <template id="template_card">
+        <div class="card-wrapper">
+            <div class="card radius shadowDepth1">
+                <div class="card-image border-tlr-radius">
+                    <img src="images/placeholder/cardcover001.png" alt="coverimg" class="border-tlr-radius">
+                </div>
+                <div class="card-content card-padding">
+                    <div class="card-favourite">
+                        <a id="favourite" class="favourite-icon favourite-toggle" href="#"></a>
+                    </div>
+>>>>>>> origin/development
 
-              <div class="card-action">
-                  <div class="card-author">
-                      <img src="images/placeholder/user001.png" alt="user" height="42" width="42">
-                      <div class="card-author-content">
-                          <a href="#">By Liam Kerrigan</a>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-    </template>
+                    <div class="card-meta">
+                        <a href="#">Vegetarian</a>
+                        <time>13th February</time>
+                    </div>
 
-    <!--The template above is cloned to the empty div below.-->
-    <div id="recipe_cards"></div>
-    <!-- </div> -->
+                    <div class="card-stats">
+                        <p class="card-stats-alignleft">
+                            <i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Cooking time: <span id="recipe_time">??</span> mins</a>
+                        </p>
+                        <p class="card-stats-alignright">
+                            <i class="fa fa-cutlery fa-fw" aria-hidden="true"></i>Feeds: 2</a>
+                        </p>
+                    </div>
 
+                    <article class="card-article">
+                        <h2>
+                            <a id="recipe_name" href="#">Recipe Name Placeholder</a>
+                        </h2>
+                        <p id="recipe_description">
+                            Hawaiian pizza is a pizza topped with tomato sauce, cheese, pineapple, and Canadian bacon or ham.
+                        </p>
+                    </article>
+                </div>
 
+                <div class="card-action">
+                    <div class="card-author">
+                        <img src="images/placeholder/user001.png" alt="user" height="42" width="42">
+                        <div class="card-author-content">
+                            <a href="#">By Liam Kerrigan</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </template>
+
+      <!--The template above is cloned to the empty div below.-->
+      <div id="recipe_cards"></div>
+      <!-- </div> -->
+    </main>
 
     <!--FOOTER -->
-    <div class="footer">
+    <footer>
         <p> Created with
             <span style="color:rgb(230, 99, 99)">
                 <i class="fa fa-heart" aria-hidden="true"></i>
             </span> by the Bake Street Boyz</p>
-    </div>
+    </footer>
 </body>
 
 </html>
