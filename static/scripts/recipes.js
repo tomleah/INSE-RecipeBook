@@ -13,6 +13,9 @@ async function populateRecipes(){
     const prep = prefab.querySelector('#recipe_time');
     prep.textContent = recipe.recipe_prep_time + recipe.recipe_cook_time;
 
+    const feeds = prefab.querySelector('#recipe_feed');
+    feeds.textContent = recipe.recipe_feeds;
+
     window.recipe_cards.appendChild(prefab);
   });
 }
