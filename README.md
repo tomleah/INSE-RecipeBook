@@ -17,6 +17,14 @@ Installation
   ```bash
   npm install
   ```
+  
+Populating Database with Test Data
+--------------------------------
+You must have mysql on your system for the following to work.
+
+```bash
+npm run initdb
+```
 
 Run Server
 ----------
