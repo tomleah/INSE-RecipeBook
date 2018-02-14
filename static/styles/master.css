@@ -197,7 +197,7 @@ li.subNav a {
 
 #recipe_cards {
   text-align: center;
-  margin-bottom: 5em;
+  /*margin-bottom: 5em;*/
 }
 
 .card-wrapper {
@@ -324,19 +324,16 @@ li.subNav a {
      transform: scale(1.2);
 }
 
+/* ========== [TOM] PAGE_NAV ========== */
 
-
-/* ========== [LEE] CONTENT ========== */
-/* .contentLeft {
-    float:left;
-padding-left: 25%;
+#recipe_page_nav {
+  text-align: center;
+  margin-bottom: 5em;
 }
 
-.contentRight {
-    float:right;
-    padding-right: 25%;
-} */
-
+#recipe_page_nav button, #recipe_page_nav div {
+  display: inline-block;
+}
 
 /* ========== [LEE] FOOTER ========== */
 
