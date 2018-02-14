@@ -1,3 +1,5 @@
+drop database if exists recipebook;
+
 create database if not exists recipebook;
 
 create table if not exists recipebook.Recipes (
