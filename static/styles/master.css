@@ -331,8 +331,15 @@ li.subNav a {
   margin-bottom: 5em;
 }
 
-#recipe_page_nav button, #recipe_page_nav div {
+#recipe_page_nav div {
   display: inline-block;
+}
+
+#page_previous, #page_next {
+  margin: 0 .25em;
+  padding: .25em .5em;
+  border: 1px solid black;
+  border-radius: 2px;
 }
 
 /* ========== [LEE] FOOTER ========== */
