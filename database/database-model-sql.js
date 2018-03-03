@@ -12,6 +12,16 @@ module.exports.getRecipes = async () => {
   return rows;
 }
 
+module.exports.searchRecipes = async (search) => {
+  const sql = await init();
+
+  const filter = '%' + search + '%';
+
+  const query = sql.format('SELECT * FROM Recipes WHERE recipe_name LIKE ?', filter);
+  const [rows] = await sql.query(query);
+  return rows;
+}
+
 let sqlPromise = null;
 
 async function init() {
