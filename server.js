@@ -8,8 +8,9 @@ const db = require('./database/database-model-sql');
 app.use('/', express.static('static'));
 
 //API
-//  GET     /data/recipes            - Return a list of max 10 recipes given the page in JSON format.
+//  GET     /data/recipes           - Return a list of max 10 recipes given the page in JSON format.
 //            ?p=...                - page number the client is requesting.
+//            ?search=...           - recipe search query
 
 app.get('/data/recipes', sendRecipes);
 
@@ -21,13 +22,14 @@ app.listen(PORT, async (err) => {
 //Server functions
 const RECIPE_LIMIT = 4;
 async function sendRecipes(req, res){
-  const allRecipes = await db.getRecipes();
+  // const recipeList = await db.getRecipes(req.query.search);
+  const recipeList = (req.query.search) ? await db.searchRecipes(req.query.search) : await db.getRecipes();
   let page = Number(req.query.p) || 1;
   //How many pages of recipes are possible?
-  const pageCount = Math.ceil(allRecipes.length / RECIPE_LIMIT);
+  const pageCount = Math.ceil(recipeList.length / RECIPE_LIMIT);
   if (page > pageCount) page = pageCount;
 
-  const recipes = allRecipes.slice(RECIPE_LIMIT * (page - 1), RECIPE_LIMIT * page);
+  const recipes = recipeList.slice(RECIPE_LIMIT * (page - 1), RECIPE_LIMIT * page);
   res.send({
     recipes,
     page,
