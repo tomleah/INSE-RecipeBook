@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/master.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	  <link rel="icon" href="images/header/chefHat.svg" sizes="any" type="image/svg+xml">
+    <title>Recipe name</title><!--make page title change depending of the page-->
+    <script src="scripts/recipes.js"></script>
+</head>
+
+<body>
+    <!--HEADER (banner and logo)-->
+    <header class="p-header">
+        <div class="p-header-inner">
+
+            <div class="p-header-content">
+                <img src="images/header/chefHat.svg" alt="Chefs Hat"> <a>Recipes!</a>
+            </div>
+        </div>
+    </header>
+
+
+    <!--NAVIGATION (buttons or links)-->
+    <nav class="p-nav">
+        <div class="p-nav-inner">
+            <ul class="p-nav-list">
+                <li class="nav">
+                    <div class="p-navEl">
+                        <a class="p-nav-link-active" href="#">
+                            <i class="fa fa-home fa-fw" aria-hidden="true"></i> &nbsp;Home
+                        </a>
+                    </div>
+                </li>
+                <!-- <li class="nav">
+                    <div class="p-navEl">
+                        <a href="#">
+                            <i class="fa fa-bullhorn fa-fw" aria-hidden="true"></i> &nbsp;What's New
+                        </a>
+                    </div>
+                </li>
+                <li class="nav">
+                    <div class="p-navEl">
+                        <a href="#">
+                            <i class="fa fa-users fa-fw" aria-hidden="true"></i> &nbsp;Members
+                        </a>
+                    </div>
+                </li> -->
+            </ul>
+            <!-- <div class="p-nav-opposite">
+                <a href="#" class="p-navgroup-link">
+                    <i class="fa fa-sign-in fa-fw" aria-hidden="true"></i> Log in&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </a>
+                <a href="#" class="p-navgroup-link">
+                    <i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> Register
+                </a>
+            </div> -->
+        </div>
+    </nav>
+
+
+    <!--SUBNAV (search and other filters) -->
+    <div class="p-subNav">
+        <div class="pageContent">
+            <ul class="p-subNavLinks-list">
+                <li class="subNav">
+                    <div class="p-navEl">
+                        <a href="#">
+                            <i class="fa fa-filter fa-fw" aria-hidden="true"></i>Filter Option 1</a>
+                    </div>
+                </li>
+                <li class="subNav">
+                    <div class="p-navEl">
+                        <a href="#">
+                            <i class="fa fa-filter fa-fw" aria-hidden="true"></i>Filter Option 2</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="p-nav-opposite">
+                <input id="recipe-search-query" type="text" placeholder="Search" name="search">
+                <button id=recipe-search>
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--CONTENT -->
+    <main>
+      <!--Show the recipe ingredients needed & instructions-->
+    </main>
+
+    <!--FOOTER -->
+    <footer>
+        <p> Created with
+            <span style="color:rgb(230, 99, 99)">
+                <i class="fa fa-heart" aria-hidden="true"></i>
+            </span> by the Bake Street Boyz</p>
+    </footer>
+</body>
+
+</html>
