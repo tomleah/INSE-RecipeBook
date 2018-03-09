@@ -18,7 +18,7 @@ create table recipebook.Recipes(
 insert into recipebook.Recipes values (null, 'Fish Cakes', 'A fish cakes recipe from england.', 'fishcakes1.png', 30, 20, 4, 0);
 insert into recipebook.Recipes values (null, 'Crispy Fish Cakes', 'Another fish cakes recipe from england. These ones are well cooked.', 'fishcakes2.png', 30, 120, 2, 0);
 insert into recipebook.Recipes values (null, 'Cake', 'A cake recipe from france.', 'fishcakes3.png', 60, 20, 1, 0);
-insert into recipebook.Recipes values (null, 'Three Pepper Pizza Pizza', 'Delicious and healthy pizza.', 'cardcover001.png', 40, 15, 3, 1);
+insert into recipebook.Recipes values (null, 'Three Pepper Pizza', 'Delicious and healthy pizza.', 'cardcover001.png', 40, 15, 3, 1);
 insert into recipebook.Recipes values (null, 'Chocolate cake', 'Chocolate cake topped with berries', 'cardcover002.png', 40, 15, 2, 1);
 
 create table recipebook.RecipeMethod(
