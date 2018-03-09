@@ -21,16 +21,21 @@ insert into recipebook.Recipes values (null, 'Vegeterian Pizza', 'Delicious ital
 insert into recipebook.Recipes values (null, 'Chocolate cake', 'Chocolate cake topped with berries', 'cardcover002.png', 40, 15, 2, 1);
 
 create table recipebook.RecipeMethod (
-  method_id int,
-  method_prep varchar(1000),
+  method_id int auto_increment,
+  recipe_id int,
   method_instr varchar(1000),
 
   constraint primary key(method_id),
-  constraint foreign key(method_id) references Recipes(recipe_id)
+  constraint foreign key(recipe_id) references Recipes(recipe_id)
 );
 
-insert into recipebook.RecipeMethod values (1, 'To prepare the english fish cakes follow the following prepararion instructions...', 'Once you have the ingredients prepared let get cooking the fish cakes');
-insert into recipebook.RecipeMethod values (2, 'To prepare crispy fish cakes follow the following prepararion instructions...', 'Once you have the ingredients prepared let get cooking the crispy fish cakes');
-insert into recipebook.RecipeMethod values (3, 'To prepare a cakes follow the following prepararion instructions...', 'Once you have the ingredients prepared let get cooking the cake');
-insert into recipebook.RecipeMethod values (4, 'To prepare a vegerarian pizza you will need to pre heat the oven...', 'Once you have the ingredients ready, add them to the pizza and leave in the oven for 10 minutes...');
-insert into recipebook.RecipeMethod values (5, 'To prepare the chocolate cake do the following prepararion instructions...', 'Once you have the ingredients prepared let get cooking the chocolate cake');
+insert into recipebook.RecipeMethod values (null, 1, 'To prepare the english fish cakes follow the following prepararion instructions...');
+insert into recipebook.RecipeMethod values (null, 1, 'Once you have the ingredients prepared let get cooking the fish cakes');
+insert into recipebook.RecipeMethod values (null, 2, 'To prepare crispy fish cakes follow the following prepararion instructions...');
+insert into recipebook.RecipeMethod values (null, 2, 'Once you have the ingredients prepared let get cooking the crispy fish cakes');
+insert into recipebook.RecipeMethod values (null, 3, 'To prepare a cakes follow the following prepararion instructions...');
+insert into recipebook.RecipeMethod values (null, 3, 'Once you have the ingredients prepared let get cooking the cake');
+insert into recipebook.RecipeMethod values (null, 4, 'To prepare a vegerarian pizza you will need to pre heat the oven...');
+insert into recipebook.RecipeMethod values (null, 4, 'Once you have the ingredients ready, add them to the pizza and leave in the oven for 10 minutes...');
+insert into recipebook.RecipeMethod values (null, 5, 'To prepare the chocolate cake do the following prepararion instructions...');
+insert into recipebook.RecipeMethod values (null, 5, 'Once you have the ingredients prepared let get cooking the chocolate cake');
