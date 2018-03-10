@@ -19,7 +19,7 @@ async function populateRecipes(){
   }
 
   window.recipe_cards.innerHTML = '';
-  recipes.forEach((recipe) => {
+  recipes.forEach(async (recipe) => {
     const prefab = window.template_card.content.cloneNode(true);
 
     const title = prefab.querySelector('#recipe_name');
@@ -33,6 +33,13 @@ async function populateRecipes(){
 
     const feeds = prefab.querySelector('#recipe_feed');
     feeds.textContent = recipe.recipe_feeds;
+
+    const img = prefab.querySelector('#recipe_image');
+    const response = await fetch('images/cardcovers/' + recipe.recipe_img_name);
+    if (!response.ok) {
+      recipe.recipe_img_name = '../defaults/nocardcover.png';
+    }
+    img.src = 'images/cardcovers/' + recipe.recipe_img_name;
 
     window.recipe_cards.appendChild(prefab);
   });
