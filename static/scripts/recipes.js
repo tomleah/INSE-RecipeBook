@@ -88,7 +88,32 @@ function getCurrentPageNumber() {
   return page;
 }
 
+let allFilters = [];
 function addFilter(){
+  const name = document.getElementById('filter-name').value;
+  const quantity = Number(document.getElementById('filter-quantity').value);
+  const unit = document.getElementById('unit-list').value;
+
+  const filter = {
+    name,
+    quantity,
+    unit
+  }
+
+  if (name == "" || isNaN(quantity) || quantity <= 0) {
+    return;
+  }
+
+  const filtersList = document.getElementById('filter-list');
+  const filterPrefab = document.getElementById('filter-option-template').content.cloneNode(true);
+  let text = `${name} (${quantity}`;
+  if (unit != 'null') {
+    text += `${unit}`;
+  }
+  text += `)`;
+  filterPrefab.getElementById('filter-option').textContent = text;
+  filtersList.appendChild(filterPrefab);
+  allFilters.push(filter);
 }
 
 async function populateUnitDropdown(){
@@ -99,6 +124,7 @@ async function populateUnitDropdown(){
   const units = await response.json();
 
   const unitList = document.getElementById('unit-list');
+  unitList.innerHTML = '';
   units.forEach((unit) => {
     const option = document.getElementById('unit-option-template').content.cloneNode(true);
     option.getElementById('unit-name').value = unit;

@@ -64,11 +64,11 @@
     <!--SUBNAV (search and other filters) -->
     <div class="p-subNav">
         <div class="pageContent">
-            <ul class="p-subNavLinks-list"></ul>
-            <template id="filer-option-template">
+            <ul id="filter-list" class="p-subNavLinks-list"></ul>
+            <template id="filter-option-template">
               <li class="subNav">
                 <div class="p-navEl">
-                  <a href="#">
+                  <a>
                     <i class="fa fa-filter fa-fw" aria-hidden="true"></i><span id="filter-option"></span>
                   </a>
                 </div>
@@ -86,6 +86,7 @@
     <div class="hide" id="new-filter-form">
       <div id="new-filter-form-wrapper">
         <input id="filter-name" type="text" placeholder="Ingredient Name">
+        <input id="filter-quantity" type="text" placeholder="Quantity">
         <select id="unit-list"></select>
         <template id="unit-option-template">
           <option id="unit-name"></option>
