@@ -46,6 +46,15 @@ module.exports.getIngredients = async (recipeID) => {
   return rows;
 }
 
+module.exports.getUnits = async () => {
+  const sql = await init();
+
+  const query = sql.format('SELECT ingredient_unit, min(ingredient_id) FROM Ingredient GROUP BY ingredient_unit');
+  const [rows] = await sql.query(query);
+  return rows;
+
+}
+
 let sqlPromise = null;
 
 async function init() {

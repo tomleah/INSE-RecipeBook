@@ -17,6 +17,7 @@ app.use('/', express.static('static'));
 
 app.get('/data/recipes', sendRecipes);
 app.get('/recipe.html/data/recipes/:id', getRecipe);
+app.get('/data/recipes/units', getPossibleUnits);
 app.get('/data/method/:id', getMethod);
 app.get('/data/ingredients/:id', getIngredients);
 
@@ -24,6 +25,15 @@ app.listen(PORT, async (err) => {
   if (err) console.error(err);
   else console.log(`Server running on PORT: ${PORT}`);
 });
+
+async function getPossibleUnits(req, res){
+  const data = await db.getUnits();
+  const units = [];
+  data.forEach((unitData) => {
+    units.push(unitData.ingredient_unit);
+  });
+  res.json(units);
+}
 
 async function getRecipe(req, res) {
   const recipeID = req.params.id;
