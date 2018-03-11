@@ -26,12 +26,13 @@ async function populatePage(recipeID) {
     return;
   }
   const ingredients = await response.json();
-  
+
   document.querySelector('main').innerHTML = '';
   const prefab = document.getElementById('recipe-template').content.cloneNode(true);
 
   const title = prefab.getElementById('recipe-title');
   title.textContent = recipe.recipe_name;
+  document.title = recipe.recipe_name;
 
   const desc = prefab.getElementById('recipe-desc');
   desc.textContent = recipe.recipe_description;
