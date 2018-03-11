@@ -379,8 +379,28 @@ li.subNav a {
   margin-left: 2em;
 }
 
+/* ========== [TOM] FILTER_FORM ========== */
 
+.hide {
+  display: none;
+}
 
+#new-filter-form {
+  background-color: rgb(221, 221, 221);
+  padding: .5em 0;
+}
+
+#new-filter-form-wrapper {
+  text-align: center;
+}
+
+#new-filter-form-wrapper select{
+  width: 10em;
+}
+
+#new-filter-form-wrapper button{
+  padding: 0 .25em;
+}
 
 /* ========== [LEE] FOOTER ========== */
 

@@ -64,27 +64,35 @@
     <!--SUBNAV (search and other filters) -->
     <div class="p-subNav">
         <div class="pageContent">
-            <ul class="p-subNavLinks-list">
-                <li class="subNav">
-                    <div class="p-navEl">
-                        <a href="#">
-                            <i class="fa fa-filter fa-fw" aria-hidden="true"></i>Filter Option 1</a>
-                    </div>
-                </li>
-                <li class="subNav">
-                    <div class="p-navEl">
-                        <a href="#">
-                            <i class="fa fa-filter fa-fw" aria-hidden="true"></i>Filter Option 2</a>
-                    </div>
-                </li>
-            </ul>
+            <ul class="p-subNavLinks-list"></ul>
+            <template id="filer-option-template">
+              <li class="subNav">
+                <div class="p-navEl">
+                  <a href="#">
+                    <i class="fa fa-filter fa-fw" aria-hidden="true"></i><span id="filter-option"></span>
+                  </a>
+                </div>
+              </li>
+            </template>
             <div class="p-nav-opposite">
-                <input id="recipe-search-query" type="text" placeholder="Search" name="search">
-                <button id=recipe-search>
-                    <i class="fa fa-search"></i>
-                </button>
+              <button id="new-filter" style="margin-right: .5em">New Filter</button>
+              <input id="recipe-search-query" type="text" placeholder="Search" name="search">
+              <button id=recipe-search>
+                  <i class="fa fa-search"></i>
+              </button>
             </div>
         </div>
+    </div>
+    <div class="hide" id="new-filter-form">
+      <div id="new-filter-form-wrapper">
+        <input id="filter-name" type="text" placeholder="Ingredient Name">
+        <select id="unit-list"></select>
+        <template id="unit-option-template">
+          <option id="unit-name"></option>
+        </template>
+        <button id="add-filter">Add</button>
+        <button id="cancel-filter">Cancel</button>
+      </div>
     </div>
 
     <!--CONTENT -->
