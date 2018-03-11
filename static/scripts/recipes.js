@@ -22,6 +22,13 @@ async function populateRecipes(){
   recipes.forEach(async (recipe) => {
     const prefab = window.template_card.content.cloneNode(true);
 
+    const card = prefab.querySelector('.card-wrapper');
+    card.dataset.recipeID = recipe.recipe_id;
+    card.addEventListener('click', (e) => {
+      const recipeID = findPathElement('card-wrapper', e.path).dataset.recipeID;
+      window.location.replace('recipe.html?recipe=' + recipeID);
+    });
+
     const title = prefab.querySelector('#recipe_name');
     title.textContent = recipe.recipe_name;
 
@@ -43,7 +50,18 @@ async function populateRecipes(){
 
     window.recipe_cards.appendChild(prefab);
   });
+}
 
+function findPathElement(className, path) {
+  path = path.slice(0, -2);
+  let returnValue;
+  path.some((el, index) => {
+    if (el.classList.contains(className)) {
+      returnValue = el;
+      return;
+    }
+  });
+  return returnValue;
 }
 
 async function getRecipes(searchQuery){
