@@ -88,14 +88,40 @@ function getCurrentPageNumber() {
   return page;
 }
 
+function addFilter(){
+}
+
+async function populateUnitDropdown(){
+  const response = await fetch('/data/recipes/units');
+  if (!response.ok) {
+    return;
+  }
+  const units = await response.json();
+
+  const unitList = document.getElementById('unit-list');
+  units.forEach((unit) => {
+    const option = document.getElementById('unit-option-template').content.cloneNode(true);
+    option.getElementById('unit-name').value = unit;
+    option.getElementById('unit-name').textContent = unit;
+    unitList.appendChild(option);
+  });
+}
+
 async function init(){
   populateRecipes();
   window.addEventListener('hashchange', populateRecipes);
+  document.getElementById('add-filter').addEventListener('click', addFilter);
+  document.getElementById('new-filter').addEventListener('click', () => {
+    document.getElementById('new-filter-form').classList.remove('hide');
+    populateUnitDropdown();
+  });
+  document.getElementById('cancel-filter').addEventListener('click', () => {
+    document.getElementById('new-filter-form').classList.add('hide');
+  });
   document.getElementById('recipe-search').addEventListener('click', () => {
     window.location.hash = '#1';
     populateRecipes();
   });
-
 }
 
 window.addEventListener('load', init);
