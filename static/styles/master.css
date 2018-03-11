@@ -214,8 +214,13 @@ li.subNav a {
     max-width: 400px;
     margin: 0 1em;
     margin-top: 2em;
+    z-index: 10;
     /* padding-left: 1em;
     padding-right: 1em; */
+}
+
+.card-wrapper * {
+  z-index: 0;
 }
 
 .card-wrapper:hover {
@@ -356,6 +361,26 @@ li.subNav a {
   border: 1px solid black;
   border-radius: 2px;
 }
+
+/* ========== [TOM] RECIPE_PAGE ========== */
+
+#recipe-wrapper {
+  width: 60vw;
+  margin: 0 auto;
+  padding: 1em 0;
+}
+
+#recipe-wrapper h2{
+  font-size: 2em;
+  margin: 0;
+}
+
+#recipe-wrapper ul, #recipe-wrapper ol {
+  margin-left: 2em;
+}
+
+
+
 
 /* ========== [LEE] FOOTER ========== */
 
