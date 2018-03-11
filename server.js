@@ -16,11 +16,32 @@ app.use('/', express.static('static'));
 //            ?search=...           - recipe search query
 
 app.get('/data/recipes', sendRecipes);
+app.get('/recipe.html/data/recipes/:id', getRecipe);
+app.get('/data/method/:id', getMethod);
+app.get('/data/ingredients/:id', getIngredients);
 
 app.listen(PORT, async (err) => {
   if (err) console.error(err);
   else console.log(`Server running on PORT: ${PORT}`);
 });
+
+async function getRecipe(req, res) {
+  const recipeID = req.params.id;
+  const recipe = await db.getRecipe(recipeID);
+  res.json(recipe);
+}
+
+async function getMethod(req, res){
+  const recipeID = req.params.id;
+  const recipe = await db.getMethod(recipeID);
+  res.json(recipe);
+}
+
+async function getIngredients(req, res){
+  const recipeID = req.params.id;
+  const recipe = await db.getIngredients(recipeID);
+  res.json(recipe);
+}
 
 //Server functions
 const RECIPE_LIMIT = 4;
@@ -38,7 +59,6 @@ async function sendRecipes(req, res){
     page,
     pageCount
   });
-
 }
 
 function moveImages(recipes){
@@ -53,10 +73,7 @@ function moveImages(recipes){
   recipes.forEach((recipe, index) => {
     fs.exists(config.serverimgpath + recipe.recipe_img_name, (exists) => {
       if (exists) {
-        console.log(recipe.recipe_img_name + ' exists');
         fs.createReadStream(config.serverimgpath + recipe.recipe_img_name).pipe(fs.createWriteStream(config.clientimgpath + recipe.recipe_img_name));
-      } else {
-        console.log(recipe.recipe_img_name + ' doesn\'t exist');
       }
     });
   });
