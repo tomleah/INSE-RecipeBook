@@ -1,6 +1,5 @@
 async function populateRecipes(){
-  const query = document.getElementById('recipe-search-query').value;
-  const data = (query) ? await getRecipes(query) : await getRecipes();
+  const data = await getRecipes();
   const recipes = data.recipes;
   const currentPage = data.page;
   const maxPages = data.pageCount;
@@ -14,12 +13,12 @@ async function populateRecipes(){
   window.pageNo.textContent = `${currentPage}/${maxPages}`
 
   if (recipes.length == 0) {
-    window.recipe_cards.innerHTML = 'No recipes';
+    window.recipe_cards.innerHTML = 'No recipes found!';
     return;
   }
 
   window.recipe_cards.innerHTML = '';
-  recipes.forEach(async (recipe) => {
+  recipes.forEach(async (recipe, index) => {
     const prefab = window.template_card.content.cloneNode(true);
 
     const card = prefab.querySelector('.card-wrapper');
@@ -64,13 +63,21 @@ function findPathElement(className, path) {
   return returnValue;
 }
 
-async function getRecipes(searchQuery){
+async function getRecipes(){
   let url = '/data/recipes';
   url += '?p=' + encodeURIComponent(getCurrentPageNumber());
 
+  const searchQuery = document.getElementById('recipe-search-query').value;
   if (searchQuery) {
     url += '&search=' + searchQuery;
   }
+
+  if (allFilters.length != 0) {
+    allFilters.forEach((filter) => {
+      url += '&filter[]=' + JSON.stringify(filter);
+    });
+  }
+
   const response = await fetch(url);
   if (!response.ok) {
     alert('error');
@@ -100,17 +107,27 @@ function addFilter(){
     unit
   }
 
+  document.getElementById('filter-name').classList.remove('error-border');
+  document.getElementById('filter-quantity').classList.remove('error-border');
+  if (name == "") {
+    document.getElementById('filter-name').classList.add('error-border');
+  }
+
+  if (isNaN(quantity) || quantity <= 0) {
+    document.getElementById('filter-quantity').classList.add('error-border');
+  }
+
   if (name == "" || isNaN(quantity) || quantity <= 0) {
     return;
   }
 
   const filtersList = document.getElementById('filter-list');
   const filterPrefab = document.getElementById('filter-option-template').content.cloneNode(true);
-  let text = `${name} (${quantity}`;
+  let text = `${name} ${quantity}`;
   if (unit != 'null') {
     text += `${unit}`;
   }
-  text += `)`;
+
   filterPrefab.getElementById('filter-option').textContent = text;
   filtersList.appendChild(filterPrefab);
   allFilters.push(filter);
