@@ -54,9 +54,22 @@ async function getIngredients(req, res){
 }
 
 //Server functions
-const RECIPE_LIMIT = 4;
+const RECIPE_LIMIT = 10;
 async function sendRecipes(req, res){
-  const recipeList = (req.query.search) ? await db.searchRecipes(req.query.search) : await db.getRecipes();
+
+  let recipeList;
+  if (req.query.search && req.query.filter) {
+    recipeList = await db.searchAndFilterRecipes(req.query.search, req.query.filter);
+  } else if (req.query.search) {
+    recipeList = await db.searchRecipes(req.query.search);
+  } else if (req.query.filter) {
+    recipeList = await db.filterRecipes(req.query.filter);
+  } else {
+    recipeList = await db.getRecipes();
+  }
+
+  // console.log(recipeList.length);
+
   let page = Number(req.query.p) || 1;
   //How many pages of recipes are possible?
   const pageCount = Math.ceil(recipeList.length / RECIPE_LIMIT);
@@ -71,20 +84,31 @@ async function sendRecipes(req, res){
   });
 }
 
+function arrayToJson(array){
+  let json;
+  for (let i = 0; i < array.length; i++){
+    console.log(array[i]);
+  }
+  return [];
+}
+
 function moveImages(recipes){
   fs.readdir(config.clientimgpath, (err, items) => {
-    items.forEach((file) => {
+    if (err) console.error(err);
+    for (let i = 0; i < items.length; i++){
+      let file = items[i];
       fs.unlink(config.clientimgpath + file, (err) => {
         if (err) console.error(err);
       });
-    });
+    }
   });
 
-  recipes.forEach((recipe, index) => {
+  for (let i = 0; i < recipes.length; i++) {
+    let recipe = recipes[i];
     fs.exists(config.serverimgpath + recipe.recipe_img_name, (exists) => {
       if (exists) {
         fs.createReadStream(config.serverimgpath + recipe.recipe_img_name).pipe(fs.createWriteStream(config.clientimgpath + recipe.recipe_img_name));
       }
     });
-  });
+  }
 }
