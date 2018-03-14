@@ -24,8 +24,8 @@ async function populateRecipes(){
     const card = prefab.querySelector('.card-wrapper');
     card.dataset.recipeID = recipe.recipe_id;
     card.addEventListener('click', (e) => {
-      const recipeID = findPathElement('card-wrapper', e.path).dataset.recipeID;
-      window.location.replace('recipe.html?recipe=' + recipeID);
+      const recipeID = findParentElement(e.target, 'card-wrapper').dataset.recipeID;
+      window.location.href = 'recipe.html?recipe=' + recipeID;
     });
 
     const title = prefab.querySelector('#recipe_name');
@@ -51,16 +51,11 @@ async function populateRecipes(){
   });
 }
 
-function findPathElement(className, path) {
-  path = path.slice(0, -2);
-  let returnValue;
-  path.some((el, index) => {
-    if (el.classList.contains(className)) {
-      returnValue = el;
-      return;
-    }
-  });
-  return returnValue;
+function findParentElement(el, className) {
+  while (!el.classList.contains(className)){
+    el = el.parentElement;
+  }
+  return el;
 }
 
 async function getRecipes(){
