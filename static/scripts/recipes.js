@@ -124,6 +124,12 @@ function addFilter(){
   }
 
   filterPrefab.getElementById('filter-option').textContent = text;
+  const subNav = filterPrefab.querySelector('.subNav');
+  subNav.dataset.index = allFilters.length;
+  subNav.addEventListener('click', () => {
+    subNav.parentNode.removeChild(subNav);
+    allFilters.splice(subNav.dataset.index, 1);
+  });
   filtersList.appendChild(filterPrefab);
   allFilters.push(filter);
 }
@@ -157,6 +163,7 @@ async function init(){
     document.getElementById('new-filter-form').classList.add('hide');
   });
   document.getElementById('recipe-search').addEventListener('click', () => {
+    if (window.location.hash == '#1') populateRecipes();
     window.location.hash = '#1';
   });
 }

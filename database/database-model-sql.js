@@ -52,7 +52,6 @@ module.exports.filterRecipes = async (filters) => {
       }
     }
   }
-  console.log(recipes);
   return recipes;
 }
 

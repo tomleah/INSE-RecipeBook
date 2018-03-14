@@ -171,6 +171,7 @@ li.nav a {
 }
 
 li.subNav {
+    cursor: pointer;
     float: left;
 }
 
