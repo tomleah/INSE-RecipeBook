@@ -23,7 +23,12 @@ app.get('/data/ingredients/:id', getIngredients);
 
 app.listen(PORT, async (err) => {
   if (err) console.error(err);
-  else console.log(`Server running on PORT: ${PORT}`);
+  else {
+    console.log(`Server running on PORT: ${PORT}`);
+    if (!fs.existsSync(config.clientimgpath)){
+      fs.mkdirSync(config.clientimgpath);
+    }
+  }
 });
 
 async function getPossibleUnits(req, res){
