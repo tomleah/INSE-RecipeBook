@@ -158,7 +158,6 @@ async function init(){
   });
   document.getElementById('recipe-search').addEventListener('click', () => {
     window.location.hash = '#1';
-    populateRecipes();
   });
 }
 
