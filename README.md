@@ -1,4 +1,4 @@
-Recipe Book 
+Recipe Book
 ===========
 
 A recipe book application created for Introduction to Software Engineering (INSE) Coursework.
@@ -12,13 +12,13 @@ Installation
   ```bash
   git clone https://github.com/tomleah/INSE-RecipeBook.git
   ```
-  
+
 2. Download required packages
 
   ```bash
   npm install
   ```
-  
+
 Build and Populate Database with Test Data
 ------------------------------------------
 You must have mysql on your system for the following to work.
@@ -41,7 +41,12 @@ Default PORT is 8080. Use env variable to change this
   ```bash
   PORT=XXXX npm start
   ```
-  
+Testing
+-------
+
+For testing run the test.py file, modifying the url variable to the url where you are running the website.
+To run the tests you will need to have helium in the machine you run the tests from.
+
 Contributors
 ------------
 
@@ -51,5 +56,3 @@ Contributors
 | 820346    | jvaque & Jesus Vaquerizo |
 | 750834    | Kerrjgan                 |
 | 814572    | UP814572                 |
-
-
