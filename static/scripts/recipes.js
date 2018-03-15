@@ -23,6 +23,7 @@ async function populateRecipes(){
 
     const card = prefab.querySelector('.card-wrapper');
     card.dataset.recipeID = recipe.recipe_id;
+    card.id = 'recipe' + recipe.recipe_id;
     card.addEventListener('click', (e) => {
       const recipeID = findParentElement(e.target, 'card-wrapper').dataset.recipeID;
       window.location.href = 'recipe.html?recipe=' + recipeID;
