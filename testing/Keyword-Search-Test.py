@@ -1,7 +1,8 @@
 from helium.api import *
 import time
 
-start_chrome("http://up810928.myvm.port.ac.uk/")
+url = input("Enter site(VM) URL/IP: ")
+start_chrome(url)
 
 write("Three Pepper Pizza", S("#recipe-search-query"))
 click(S("#recipe-search"))

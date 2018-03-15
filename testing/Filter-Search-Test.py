@@ -4,7 +4,8 @@ import time
 def getAmountOfFilters():
     return len(find_all(S("#filter-option")))
 
-start_chrome("http://up810928.myvm.port.ac.uk/")
+url = input("Enter site(VM) URL/IP: ")
+start_chrome(url)
 
 #No Ingredient or Quantity
 click("New Filter")
@@ -91,12 +92,13 @@ else:
     print("Test Passed")
 
 click(S("#recipe-search"))
-if len(find_all(S("#card-wrapper")) != 3):
+
+time.sleep(2)
+
+if len(find_all(S(".card-wrapper"))) != 3:
     print("Test Failed: Filter did not provide the correct result.")
 else:
     print("Test Passed")
-
-time.sleep(20)
 
 kill_browser()
 
