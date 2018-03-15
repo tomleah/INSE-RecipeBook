@@ -395,6 +395,14 @@ li.subNav a {
   border: 1px solid red;
 }
 
+#new-filter {
+	margin-right: .5em;
+	margin-bottom: .3em;
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.3em;
+	font-weight: 400;
+}
+
 #new-filter-form {
   background-color: rgb(221, 221, 221);
   padding: .5em 0;
