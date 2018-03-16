@@ -1,6 +1,8 @@
 from helium.api import *
 import time
 
+#Test to check that recipes are shown on the page.
+
 url = input("Enter site(VM) URL/IP: ")
 start_chrome(url)
 

@@ -4,6 +4,7 @@ const mysql = require('mysql2/promise');
 
 const config = require('../config');
 
+//Returns data for a single recipe given the recipe's ID
 module.exports.getRecipe = async (recipeID) => {
   const sql = await init();
 
@@ -12,6 +13,7 @@ module.exports.getRecipe = async (recipeID) => {
   return rows[0];
 }
 
+//Returns ALL recipes in database.
 module.exports.getRecipes = async () => {
   const sql = await init();
 
@@ -20,10 +22,12 @@ module.exports.getRecipes = async () => {
   return rows;
 }
 
+//Returns recipes that are valid for given search keywords and filters.
 module.exports.searchAndFilterRecipes = async (search, filters) => {
   const filtered = await module.exports.filterRecipes(filters);
   const searched = await module.exports.searchRecipes(search);
   let recipes = [];
+  //Recipe is valid if they are returned in both above arrays.
   for (let i = 0; i < filtered.length; i++){
     for (let j = 0; j < searched.length; j++){
       if (filtered[i].recipe_id == searched[j].recipe_id) {
@@ -36,6 +40,8 @@ module.exports.searchAndFilterRecipes = async (search, filters) => {
   return recipes;
 }
 
+//Returns all recipes that fit the given filters.
+//Checks recipe's ingredients against each filter and if the ingredient exists then the recipe is valid.
 module.exports.filterRecipes = async (filters) => {
   let recipes = [];
   for (let i = 0; i < filters.length; i++){
@@ -55,6 +61,7 @@ module.exports.filterRecipes = async (filters) => {
   return recipes;
 }
 
+//Given a keyword string will return all recipes that contains them in title.
 module.exports.searchRecipes = async (search) => {
   const sql = await init();
 
@@ -65,6 +72,7 @@ module.exports.searchRecipes = async (search) => {
   return rows;
 }
 
+//Returns all methods for a given recipe.
 module.exports.getMethod = async (recipeID) => {
   const sql = await init();
 
@@ -73,6 +81,7 @@ module.exports.getMethod = async (recipeID) => {
   return rows;
 }
 
+//Returns all ingredients that match the given search query.
 module.exports.searchIngredients = async (search) => {
   const sql = await init();
 
@@ -83,6 +92,7 @@ module.exports.searchIngredients = async (search) => {
   return rows;
 }
 
+//Returns all ingredients for a given recipe.
 module.exports.getIngredients = async (recipeID) => {
   const sql = await init();
 
@@ -91,6 +101,7 @@ module.exports.getIngredients = async (recipeID) => {
   return rows;
 }
 
+//Returns all possible units ingredients can be in.
 module.exports.getUnits = async () => {
   const sql = await init();
 
@@ -100,6 +111,7 @@ module.exports.getUnits = async () => {
 
 }
 
+//Returns boolean value depending if a recipe is found in a given list of recipes.
 function isRecipeIncluded(recipe, list) {
   for (let i = 0; i < list.length; i++){
     if (recipe.recipe_id == list[i].recipe_id) return true;
@@ -107,6 +119,7 @@ function isRecipeIncluded(recipe, list) {
   return false;
 }
 
+//SQL Functions to connect to database
 let sqlPromise = null;
 
 async function init() {

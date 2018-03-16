@@ -1,6 +1,8 @@
 from helium.api import *
 import time
 
+#Test designed to check that adding a filter is properly validated and that searching using a valid filter responds with the correct recipes.
+
 def getAmountOfFilters():
     return len(find_all(S("#filter-option")))
 
@@ -101,5 +103,3 @@ else:
     print("Test Passed")
 
 kill_browser()
-
-

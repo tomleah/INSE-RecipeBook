@@ -11,9 +11,11 @@ const db = require('./database/database-model-sql');
 app.use('/', express.static('static'));
 
 //API
-//  GET     /data/recipes           - Return a list of max 10 recipes given the page in JSON format.
-//            ?p=...                - page number the client is requesting.
-//            ?search=...           - recipe search query
+//  GET     /data/recipes                   - Return a list of max 10 recipes given the page in JSON format.
+//  GET     /recipe.html/data/recipes/:id   - Return a single recipe given the :id
+//  GET     /data/recipes/getUnits          - Returns all units that are used by ingredients
+//  GET     /data/method/:id                - Returns all steps of method given the :id
+//  GET     /data/ingredients/:id           - Returns all ingredients for a given recipe :id
 
 app.get('/data/recipes', sendRecipes);
 app.get('/recipe.html/data/recipes/:id', getRecipe);
@@ -25,6 +27,7 @@ app.listen(PORT, async (err) => {
   if (err) console.error(err);
   else {
     console.log(`Server running on PORT: ${PORT}`);
+    //Make the images folder if it doesnt already exist, ready to contain sent images.
     if (!fs.existsSync(config.clientimgpath)){
       fs.mkdirSync(config.clientimgpath);
     }
@@ -62,6 +65,7 @@ async function getIngredients(req, res){
 const RECIPE_LIMIT = 10;
 async function sendRecipes(req, res){
 
+  //Determine what recipes has been requested.
   let recipeList;
   if (req.query.search && req.query.filter) {
     recipeList = await db.searchAndFilterRecipes(req.query.search, req.query.filter);
@@ -72,8 +76,6 @@ async function sendRecipes(req, res){
   } else {
     recipeList = await db.getRecipes();
   }
-
-  // console.log(recipeList.length);
 
   let page = Number(req.query.p) || 1;
   //How many pages of recipes are possible?
@@ -98,6 +100,7 @@ function arrayToJson(array){
 }
 
 function moveImages(recipes){
+  //Delete/refresh clients images
   fs.readdir(config.clientimgpath, (err, items) => {
     if (err) console.error(err);
     for (let i = 0; i < items.length; i++){
@@ -108,10 +111,12 @@ function moveImages(recipes){
     }
   });
 
+  //Add images that client needs to use
   for (let i = 0; i < recipes.length; i++) {
     let recipe = recipes[i];
     fs.exists(config.serverimgpath + recipe.recipe_img_name, (exists) => {
       if (exists) {
+        //Copy and paste images from server database to folder accessible from client.
         fs.createReadStream(config.serverimgpath + recipe.recipe_img_name).pipe(fs.createWriteStream(config.clientimgpath + recipe.recipe_img_name));
       }
     });

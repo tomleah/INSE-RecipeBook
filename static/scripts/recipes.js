@@ -18,6 +18,7 @@ async function populateRecipes(){
   }
 
   window.recipe_cards.innerHTML = '';
+  //Populate recipe card and add recipe to list of recipes.
   recipes.forEach(async (recipe, index) => {
     const prefab = window.template_card.content.cloneNode(true);
 
@@ -42,6 +43,7 @@ async function populateRecipes(){
     feeds.textContent = recipe.recipe_feeds;
 
     const img = prefab.querySelector('#recipe_image');
+    //Check if image exists and if not use default image.
     const response = await fetch('images/cardcovers/' + recipe.recipe_img_name);
     if (!response.ok) {
       recipe.recipe_img_name = '../defaults/nocardcover.png';
@@ -52,6 +54,7 @@ async function populateRecipes(){
   });
 }
 
+//Will return the parent element that has the given class.
 function findParentElement(el, className) {
   while (!el.classList.contains(className)){
     el = el.parentElement;
@@ -59,15 +62,18 @@ function findParentElement(el, className) {
   return el;
 }
 
+//Constucts url and requests recipes.
 async function getRecipes(){
   let url = '/data/recipes';
   url += '?p=' + encodeURIComponent(getCurrentPageNumber());
 
+  //If user has used the search box, add the input to the url query.
   const searchQuery = document.getElementById('recipe-search-query').value;
   if (searchQuery) {
     url += '&search=' + searchQuery;
   }
 
+  //Add any filters to the url.
   if (allFilters.length != 0) {
     allFilters.forEach((filter) => {
       url += '&filter[]=' + JSON.stringify(filter);
@@ -91,6 +97,7 @@ function getCurrentPageNumber() {
   return page;
 }
 
+//Adds filter to list of filters, ready to by used.
 let allFilters = [];
 function addFilter(){
   const name = document.getElementById('filter-name').value;
@@ -103,6 +110,7 @@ function addFilter(){
     unit
   }
 
+  //Validating filter
   document.getElementById('filter-name').classList.remove('error-border');
   document.getElementById('filter-quantity').classList.remove('error-border');
   if (name == "") {
@@ -117,6 +125,7 @@ function addFilter(){
     return;
   }
 
+  //Add filter to page.
   const filtersList = document.getElementById('filter-list');
   const filterPrefab = document.getElementById('filter-option-template').content.cloneNode(true);
   let text = `${name} ${quantity}`;
@@ -135,6 +144,7 @@ function addFilter(){
   allFilters.push(filter);
 }
 
+//Gets all posible units a ingredient can have and adds to select list.
 async function populateUnitDropdown(){
   const response = await fetch('/data/recipes/units');
   if (!response.ok) {
@@ -152,6 +162,7 @@ async function populateUnitDropdown(){
   });
 }
 
+//Event Listener initialisers
 async function init(){
   populateRecipes();
   window.addEventListener('hashchange', populateRecipes);

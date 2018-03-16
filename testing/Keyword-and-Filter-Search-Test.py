@@ -1,6 +1,8 @@
 from helium.api import *
 import time
 
+#Test to see if using a valid filter and keywords will respond with the correct recipe.
+
 url = input("Enter site(VM) URL/IP: ")
 start_chrome(url)
 

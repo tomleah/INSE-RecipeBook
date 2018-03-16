@@ -6,6 +6,7 @@ function init(){
   populatePage(recipeID);
 }
 
+//Retrieves information about a recipe and displays in on the page.
 async function populatePage(recipeID) {
   let response;
 
@@ -54,6 +55,7 @@ async function populatePage(recipeID) {
   });
 
   const ingredientsList = prefab.getElementById('recipe-ingredients');
+  //Formatting ingredients depending if they have a unit or quantity.
   ingredients.forEach((ingredient) => {
     const li = document.createElement('li');
     if (ingredient.recipeIngredients_quantity != null) {
