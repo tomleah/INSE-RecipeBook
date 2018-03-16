@@ -44,8 +44,9 @@ Default PORT is 8080. Use env variable to change this
 Testing
 -------
 
-For testing run the test.py file, modifying the url variable to the url where you are running the website.
-To run the tests you will need to have helium in the machine you run the tests from.
+For testing run the files in the test folder, when any of this files is run you will be prompted to write the url or IP where you are hosting this website.
+
+In order to run the tests properly you will need to have python, chrome and helium web testing tool in the machine whereyou run the tests from.
 
 Contributors
 ------------
